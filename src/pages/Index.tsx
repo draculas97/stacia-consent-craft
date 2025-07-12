@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import RoleSelector from '@/components/RoleSelector';
-import ClientDashboard from '@/components/ClientDashboard';
+import Landing from '@/pages/Landing';
+import ClientDashboard from '@/components/enhanced/ClientDashboard';
 import BusinessDashboard from '@/components/BusinessDashboard';
 import AdminDashboard from '@/components/AdminDashboard';
 
@@ -18,7 +18,7 @@ const Index = () => {
   };
 
   if (selectedRole === null) {
-    return <RoleSelector onSelectRole={handleRoleSelect} />;
+    return <Landing onRoleSelect={handleRoleSelect} />;
   }
 
   switch (selectedRole) {
@@ -29,7 +29,7 @@ const Index = () => {
     case 'admin':
       return <AdminDashboard onBack={handleBack} />;
     default:
-      return <RoleSelector onSelectRole={handleRoleSelect} />;
+      return <Landing onRoleSelect={handleRoleSelect} />;
   }
 };
 
